@@ -13,11 +13,22 @@
           class="org.example.ClassicalMusic">
     </bean>
 
+    <bean id="rapMusic"
+          class="org.example.RapMusic">
+    </bean>
+
+    <bean id="rockMusic"
+          class="org.example.RockMusic">
+    </bean>
+
     <bean id="musicPlayer"
           class="org.example.MusicPlayer">
-        <property name="music" ref="musicBean"/>
-
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
+        <constructor-arg>
+            <list>
+                <ref bean="classicalBean"/>
+                <ref bean="rapMusic"/>
+                <ref bean="rockMusic"/>
+            </list>
+        </constructor-arg>
     </bean>
 </beans>
