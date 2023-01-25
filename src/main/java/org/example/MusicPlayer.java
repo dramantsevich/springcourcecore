@@ -1,10 +1,7 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MusicPlayer {
-    private List<Music> music = new ArrayList<>();
+    private Music music;
 
     private String name;
     private int volume;
@@ -25,15 +22,20 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public void setMusic(List<Music> music) {
+    //IoC
+    public MusicPlayer(Music music) {
         this.music = music;
     }
 
-    public MusicPlayer(List<Music> music) {
+    public MusicPlayer() {
+
+    }
+
+    public void setMusic(Music music) {
         this.music = music;
     }
 
     public void playMusic() {
-        music.forEach(m -> System.out.println(m.getSong()));
+        System.out.println("Playing: " + music.getSong());
     }
 }
