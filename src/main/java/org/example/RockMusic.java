@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RockMusic implements Music {
     @Override
-    public String getSong() {
-        return "Wind cries Marry";
+    public String[] getSong() {
+        return new String[] {"Wind cries Marry", "123", "321"};
     }
 }

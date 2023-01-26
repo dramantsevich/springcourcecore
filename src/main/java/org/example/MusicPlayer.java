@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+
 @Component
 public class MusicPlayer {
     private Music music1;
@@ -15,7 +18,8 @@ public class MusicPlayer {
         this.music2 = music2;
     }
 
-    public String playMusic() {
-        return "Playing" + music1.getSong() + ", " + music2.getSong();
+    public String playMusic() throws NoSuchAlgorithmException {
+        return "Playing" + " " + MusicGenres.values()[SecureRandom.getInstanceStrong()
+                .nextInt(MusicGenres.values().length)];
     }
 }
