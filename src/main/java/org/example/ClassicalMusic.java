@@ -1,11 +1,13 @@
 package org.example;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("singleton")
 public class ClassicalMusic implements Music {
     @Override
-    public String[] getSong() {
-        return new String[] {"Hungarian Rapsody", "asd", "dsa"};
+    public String getSong() {
+        return "Hungarian Rapsody";
     }
 }

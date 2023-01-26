@@ -3,8 +3,6 @@ package org.example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.security.NoSuchAlgorithmException;
-
 @Component
 public class Computer {
     private int id;
@@ -18,10 +16,6 @@ public class Computer {
 
     @Override
     public String toString() {
-        try {
-            return "Computer " + id + " " + musicPlayer.playMusic();
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
+        return "Computer " + id + " " + musicPlayer.playMusic();
     }
 }

@@ -2,13 +2,24 @@ package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 
 @Component
 public class MusicPlayer {
+    @Value("${musicPlayer.name}")
+    private String name;
+    @Value("${musicPlayer.volume}")
+    private int volume;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
     private Music music1;
     private Music music2;
 
@@ -18,8 +29,7 @@ public class MusicPlayer {
         this.music2 = music2;
     }
 
-    public String playMusic() throws NoSuchAlgorithmException {
-        return "Playing" + " " + MusicGenres.values()[SecureRandom.getInstanceStrong()
-                .nextInt(MusicGenres.values().length)];
+    public String playMusic() {
+        return "Playing" + music1.getSong() + ", " + music2.getSong();
     }
 }
