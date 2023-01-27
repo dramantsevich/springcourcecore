@@ -24,11 +24,16 @@ public class SpringConfig {
 
     @Bean
     public MusicPlayer musicPlayer() {
-        return new MusicPlayer(rockMusic(), classicalMusic());
+        return new MusicPlayer(musicGenres());
     }
 
     @Bean
     public Computer computer() {
         return new Computer(musicPlayer());
+    }
+
+    @Bean
+    public MusicGenres musicGenres() {
+        return new MusicGenres(classicalMusic(), rockMusic(), rapMusic());
     }
 }
